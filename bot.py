@@ -783,11 +783,11 @@ def main_menu_option_15_handler(notification: Notification) -> None:
             reply_buttons_message,
             [{
                 "buttonId": "1",
-                "buttonText": "Menu"
+                "buttonText": answers_data["menu_button"][sender_lang_code]
             },
             {
-                "buttonId": "2", 
-                "buttonText": "Stop"
+                "buttonId": "2",
+                "buttonText": answers_data["stop_button"][sender_lang_code]
             }],
             reply_buttons_title,
             reply_buttons_footer
