@@ -783,11 +783,11 @@ def main_menu_option_15_handler(notification: Notification) -> None:
             reply_buttons_message,
             [{
                 "buttonId": "1",
-                "buttonText": "Menu"
+                "buttonText": answers_data["menu_button"][sender_lang_code]
             },
             {
-                "buttonId": "2", 
-                "buttonText": "Stop"
+                "buttonId": "2",
+                "buttonText": answers_data["stop_button"][sender_lang_code]
             }],
             reply_buttons_title,
             reply_buttons_footer
@@ -1210,7 +1210,7 @@ def set_language_incorrect_message_handler(notification: Notification) -> None:
 @bot.router.message(
     type_message=TEXT_TYPES,
     state=States.MENU.value,
-    regexp=(r"^(?!\s*(?:1[0-4]|[0-9]|stop|стоп|menu|меню)\s*$).*$", IGNORECASE),
+    regexp=(r"^(?!\s*(?:1[0-7]|[0-9]|stop|стоп|menu|меню)\s*$).*$", IGNORECASE),
 )
 @debug_profiler(logger=logger)
 def main_menu_incorrect_message_handler(notification: Notification) -> None:
