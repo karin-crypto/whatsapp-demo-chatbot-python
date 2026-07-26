@@ -27,9 +27,9 @@ The only things this skill cannot guess are the two WhatsApp numbers. Fill them 
 use (international format, digits only, no `+`, e.g. `972501234567`):
 
 ```
-MAAYAN_WHATSAPP    = <מספר הוואטסאפ של מעיין>
-ACCOUNTANT_NAME    = <שם רואה החשבון>
-ACCOUNTANT_WHATSAPP= <מספר הוואטסאפ של רו״ח>
+MAAYAN_WHATSAPP    = 972532248724   # מעיין, מנהלת משרד (053-2248724)
+ACCOUNTANT_NAME    = ספואן נג׳אר, רו״ח
+ACCOUNTANT_WHATSAPP= 972559734494   # ספואן נג׳אר, רו״ח (055-9734494)
 
 # behaviour switches (defaults chosen for safety)
 CONFIRM_BEFORE_SEND = true      # true = show a preview and wait for "שלח"; false = auto-send
