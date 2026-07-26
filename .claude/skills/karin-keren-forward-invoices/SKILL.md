@@ -54,9 +54,24 @@ Never invent or guess a phone number.
     local attachment saved from the email (the usual case here).
   - `chatId` is `"<number>@c.us"`, e.g. `972501234567@c.us`.
 
-If Gmail or the WhatsApp channel isn't connected, do **not** claim anything was forwarded. Tell
-Karin which one to connect, and meanwhile produce a ready-to-send summary + the attachment she
-can forward manually.
+**The actual send runs through `tools/forward_invoice_whatsapp.py`** (in this repo). A chat
+session can *find* invoices but cannot download attachment bytes or hold the Green API token,
+so the send is delegated to that script, which does both. Run it where the credentials live:
+
+```bash
+# forward straight from a Gmail message:
+python tools/forward_invoice_whatsapp.py --gmail-message-id <ID> --to accountant --to maayan \
+    --caption "חשבונית להעברה"
+# or send a PDF already on disk:
+python tools/forward_invoice_whatsapp.py --file receipt.pdf --to accountant
+```
+
+It reads `GREENAPI_ID_INSTANCE` / `GREENAPI_API_TOKEN` (and Google OAuth for Gmail mode) from
+the environment — never paste those secrets into chat.
+
+If Gmail or the WhatsApp channel isn't connected — or the Green API token isn't set in the
+environment — do **not** claim anything was forwarded. Tell Karin exactly what to set (env vars
+above), and meanwhile produce a ready-to-send summary + the exact command she can run.
 
 ## Step 1 — Find the invoice emails
 
